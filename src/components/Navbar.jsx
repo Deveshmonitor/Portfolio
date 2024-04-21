@@ -6,7 +6,7 @@ import { MdDarkMode } from "react-icons/md";
 import { MdLightMode } from "react-icons/md";
 
 const Navbar = () => {
-  const { darkMode, handleToggle } = useAppContext();
+  const { darkMode, handleToggle, handleCallButtonClick } = useAppContext();
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const toggleMobileMenu = () => {
@@ -87,8 +87,8 @@ const Navbar = () => {
               Sign Up
             </button>
 
-            <button className="bg-primary md:flex hidden font-semibold font-custom text-white text-base  md:px-4  py-1.5 rounded-md">
-              Sign In
+            <button onClick={handleCallButtonClick} className="bg-primary md:flex hidden font-semibold font-custom text-white text-base  md:px-4  py-1.5 rounded-md">
+              Hire Me
             </button>
           </div>
         </div>
@@ -115,8 +115,8 @@ const Navbar = () => {
           <a href="/contact" className="block dark:text-white py-2 font-custom">
             Help
           </a>
-          <button className="bg-primary w-full justify-center flex  font-semibold text-white text-base px-3 py-2 rounded-md mt-4 font-custom">
-            Sign In
+          <button onClick={handleCallButtonClick} className="bg-primary w-full justify-center flex  font-semibold text-white text-base px-3 py-2 rounded-md mt-4 font-custom">
+            Hire Me
           </button>
         </div>
       )}

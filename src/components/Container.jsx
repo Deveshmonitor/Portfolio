@@ -1,4 +1,6 @@
 import React from "react";
+import Typewriter from "typewriter-effect";
+import Services from './Services';
 
 function Container() {
   return (
@@ -11,10 +13,30 @@ function Container() {
               I Am SoftWare Engineer
             </h4>
 
-            <h1 className="text-xl md:text-4xl my-4 dark:text-white font-custom leading-tight font-bold mb-4 px-6 md:px-0">
-              Welcome To My <span className="text-primary">World!</span>  <br />
+            <h1 className="text-3xl md:text-5xl my-4 dark:text-white font-custom leading-tight font-bold mb-4 px-6 md:px-0">
+              Welcome To My <span className="text-primary">World!</span> <br />
               <span className="text-primary"> I am </span> Devesh Sen.
             </h1>
+            <div
+              className="text-xl md:text-xl my-4
+            dark:text-white font-custom leading-tight 
+            font-bold mb-4 px-6 md:px-0"
+            >
+              <Typewriter
+                options={{
+                  strings: [
+                    "Web Developement",
+                    "App Development",
+                    "ios Development",
+                    "ERP Development",
+                  ],
+                  autoStart: true,
+                  loop: true,
+                  delay: 70,
+                  deleteSpeeds: 20,
+                }}
+              />
+            </div>
 
             <p className="text-Gray font-normal leading-snug my-2 text-sm font-custom">
               As a seasoned software engineer, I specialize in crafting
@@ -30,11 +52,9 @@ function Container() {
                 Get Started
               </button>
               <button className="px-4 py-2  cursor-pointer text-[16px] font-Poppins font-semibold text-primary rounded-md">
-                        Explore Me
+                Explore Blogs
               </button>
-              <p className="text-Gray mt-10 md:flex hidden font-normal font-custom leading-snug my-2 text-[16px]">
-                Hosting Service Is Free 
-              </p>
+
               <div className="md:flex hidden items-center space-x-4">
                 {/*<img src="../../Vector.png" alt="" />
                 <img src="../../Vector (1).png" alt="" />*/}
@@ -44,7 +64,7 @@ function Container() {
           <div className="w-full md:w-[40%]">
             <img
               className="w-full max-h-[80%]  rounded-md "
-              src={"../../Designer.png"}
+              src={"../../main.jpg"}
               alt="Your Image Description"
             />
           </div>
@@ -53,14 +73,11 @@ function Container() {
 
       <div className="mx-auto flex flex-col justify-center py-4  md:py-12 dark:bg-dark_bg">
         <h1 className="md:text-2xl md:mb-14 font-semibold font-Poppins dark:text-white text-center">
-          This site in working in progress
+          This site is working in progress
         </h1>
-        <img
-          className="md:my-14 mt-10 px-10"
-          src="../../companies.png"
-          alt=""
-        />
+        <img className="md:my-14 mt-10 px-10" src="../../main.png" alt="" />
       </div>
+      <Services/>
     </div>
   );
 }

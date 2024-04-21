@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useEffect, useState } from 'react';
+import React, { createContext, useContext, useEffect, useState } from "react";
 
 const AppContext = createContext();
 
@@ -7,8 +7,14 @@ export const AppProvider = ({ children }) => {
     return localStorage.getItem("mode") == "light" ? true : false;
   });
 
+  const phoneNumber = "+919301024584"; // Replace this with your actual phone number
+
+  const handleCallButtonClick = () => {
+    window.location.href = `tel:${phoneNumber}`;
+  };
+
   const handleToggle = () => {
-    setIsDarkMode(prevMode => {
+    setIsDarkMode((prevMode) => {
       localStorage.setItem("mode", prevMode ? "dark" : "light");
       return !prevMode;
     });
@@ -16,12 +22,12 @@ export const AppProvider = ({ children }) => {
 
   useEffect(() => {
     document.body.classList.toggle("dark", !darkMode);
-  }, [darkMode])
-
-
+  }, [darkMode]);
 
   return (
-    <AppContext.Provider value={{ darkMode, handleToggle }}>
+    <AppContext.Provider
+      value={{ darkMode, handleToggle, handleCallButtonClick }}
+    >
       {children}
     </AppContext.Provider>
   );
@@ -30,7 +36,7 @@ export const AppProvider = ({ children }) => {
 export const useAppContext = () => {
   const context = useContext(AppContext);
   if (!context) {
-    throw new Error('useAppContext must be used within an AppProvider');
+    throw new Error("useAppContext must be used within an AppProvider");
   }
   return context;
 };
