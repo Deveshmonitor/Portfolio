@@ -1,12 +1,36 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 import { MdOutlinePhonelinkRing } from "react-icons/md";
 import { FaLocationDot } from "react-icons/fa6";
 import { IoMdMail } from "react-icons/io";
 
 const Footer = () => {
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      const footerPosition = document.getElementById("footer").offsetTop;
+      if (currentScrollY > footerPosition - window.innerHeight / 2) {
+        setIsVisible(true);
+      } else {
+        setIsVisible(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <div>
-      <footer className="bg-bg dark:bg-dar_bg_secondary ">
+      <motion.footer
+        id="footer"
+        className="bg-bg dark:bg-dar_bg_secondary "
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 50 }}
+        transition={{ duration: 0.5 }}
+      >
         <div className="container mx-auto md:py-10 p-2 flex flex-col md:flex-row justify-between">
           {/* Left Side - Logo */}
           <div className="w-full md:w-1/5 mb-6 md:mb-0">
@@ -113,10 +137,15 @@ const Footer = () => {
             </div>
           </div>
         </div>
-      </footer>
-      <h1 className="text-center font-Poppins font-normal text-sm md:text-base dark:bg-dark_bg dark:text-white p-4">
+      </motion.footer>
+      <motion.h1
+        className="text-center font-Poppins font-normal text-sm md:text-base dark:bg-dark_bg dark:text-white p-4"
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 50 }}
+        transition={{ duration: 0.5 }}
+      >
         Copyright @Deveshsen 2024. All Rights Reserved.
-      </h1>
+      </motion.h1>
     </div>
   );
 };
