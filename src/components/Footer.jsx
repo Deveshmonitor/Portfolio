@@ -1,36 +1,12 @@
-import React, { useEffect, useState } from "react";
-import { motion } from "framer-motion";
+import React from "react";
 import { MdOutlinePhonelinkRing } from "react-icons/md";
 import { FaLocationDot } from "react-icons/fa6";
 import { IoMdMail } from "react-icons/io";
 
 const Footer = () => {
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-      const footerPosition = document.getElementById("footer").offsetTop;
-      if (currentScrollY > footerPosition - window.innerHeight / 2) {
-        setIsVisible(true);
-      } else {
-        setIsVisible(false);
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
   return (
     <div>
-      <motion.footer
-        id="footer"
-        className="bg-bg dark:bg-dar_bg_secondary "
-        initial={{ opacity: 0, y: 50 }}
-        animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 50 }}
-        transition={{ duration: 0.5 }}
-      >
+      <footer id="footer" className="bg-bg dark:bg-dar_bg_secondary ">
         <div className="container mx-auto md:py-10 p-2 flex flex-col md:flex-row justify-between">
           {/* Left Side - Logo */}
           <div className="w-full md:w-1/5 mb-6 md:mb-0">
@@ -45,11 +21,12 @@ const Footer = () => {
               </a>
             </div>
             <p className="text-Gray font-normal md:text-left text-center leading-snug my-2 text-sm md:text-[16px] font-custom">
-              Maximize your investment in the capital market world with the
-              convenience and various features provided by Tradiant.
+              Developers are the visionary architects of tomorrow's digital
+              world, transforming ideas into reality with code and innovation.
             </p>
-            <p className="text-Gray  md:text-left text-center font-normal leading-snug my-3 text-md font-custom">
-              Unduh Aplikasi
+            <p className="text-Gray  md:text-left text-center font-normal leading-snug my-3 text-sm font-custom">
+              Developers are the pioneers of digital evolution, shaping
+              tomorrow's landscape with their code.
             </p>
             <div className="flex justify-center md:justify-start">
               <img className="md:w-13" src="../../footer.png" alt="" />
@@ -137,15 +114,10 @@ const Footer = () => {
             </div>
           </div>
         </div>
-      </motion.footer>
-      <motion.h1
-        className="text-center font-Poppins font-normal text-sm md:text-base dark:bg-dark_bg dark:text-white p-4"
-        initial={{ opacity: 0, y: 50 }}
-        animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 50 }}
-        transition={{ duration: 0.5 }}
-      >
+      </footer>
+      <h1 className="text-center font-Poppins font-normal text-sm md:text-base dark:bg-dark_bg dark:text-white p-4">
         Copyright @Deveshsen 2024. All Rights Reserved.
-      </motion.h1>
+      </h1>
     </div>
   );
 };

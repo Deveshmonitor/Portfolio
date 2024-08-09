@@ -111,13 +111,15 @@ const Navbar = () => {
             <button className="px-4 py-1.5 md:flex hidden text-base font-semibold font-custom text-primary rounded-md">
               Sign Up
             </button>
-
-            <button
-              onClick={handleCallButtonClick}
-              className="bg-primary md:flex hidden font-semibold font-custom text-white text-base  md:px-4  py-1.5 rounded-md"
-            >
-              Hire Me
-            </button>
+            <motion whileHover={{ scale: 1.1 }} className="div">
+              {" "}
+              <button
+                onClick={handleCallButtonClick}
+                className="bg-primary md:flex hidden font-semibold font-custom text-white text-base  md:px-4  py-1.5 rounded-md"
+              >
+                Hire Me
+              </button>
+            </motion>
           </motion.div>
         </div>
       </motion.nav>

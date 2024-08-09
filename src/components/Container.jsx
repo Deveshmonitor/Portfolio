@@ -36,7 +36,7 @@ function Container() {
           </h4>
 
           <h1 className="text-3xl md:text-5xl my-4 dark:text-white font-custom leading-tight font-bold mb-4 px-6 md:px-0">
-            Welcome To My <span className="text-primary">World!</span> <br />
+            Welcome To Tech <span className="text-primary">World!</span> <br />
             <span className="text-primary"> I am </span> Devesh Sen.
           </h1>
           <div
